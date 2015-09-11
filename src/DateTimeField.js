@@ -275,7 +275,7 @@ export default class DateTimeField extends Component {
   }
 
   onClick = () => {
-    this.refs.dtbinput.getDOMNode().focus();
+    this.refs.dtpinput.getDOMNode().focus();
     let classes, gBCR, offset, placePosition, scrollTop, styles;
     if (this.state.showPicker) {
       return this.closePicker();
@@ -382,7 +382,7 @@ export default class DateTimeField extends Component {
                   widgetStyle={this.state.widgetStyle}
             />
             <div className="input-group date" ref="datetimepicker">
-              <input type="text" className="form-control" ref="dtbinput" onKeyDown={this.onKeyDown} onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
+              <input type="text" className="form-control" ref="dtpinput" onKeyDown={this.onKeyDown} onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
               <span className="input-group-addon" onClick={this.onClick} ref="dtpbutton"><Glyphicon glyph={this.state.buttonIcon} /></span>
             </div>
           </div>
