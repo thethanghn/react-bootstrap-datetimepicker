@@ -249,7 +249,33 @@ export default class DateTimeField extends Component {
     });
   }
 
+  onKeyDown = (e) => {
+    if (this.props.mode == Constants.MODE_TIME) {
+      switch(e.which) {
+        case  40:
+          if (!this.state.showPicker) {
+            this.onClick();
+          } else {
+            this.addMinute();
+          }
+          
+          break;
+        case 38:
+          this.subtractMinute();
+          break;
+        case 27: //escape
+        case 13: //enter
+        case 9:  //tab
+          if (this.state.showPicker) {
+            this.closePicker();
+          }
+          break;
+      }  
+    }
+  }
+
   onClick = () => {
+    this.refs.dtbinput.getDOMNode().focus();
     let classes, gBCR, offset, placePosition, scrollTop, styles;
     if (this.state.showPicker) {
       return this.closePicker();
@@ -356,8 +382,8 @@ export default class DateTimeField extends Component {
                   widgetStyle={this.state.widgetStyle}
             />
             <div className="input-group date" ref="datetimepicker">
-              <input type="text" className="form-control" onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
-              <span className="input-group-addon" onClick={this.onClick} onBlur={this.onBlur} ref="dtpbutton"><Glyphicon glyph={this.state.buttonIcon} /></span>
+              <input type="text" className="form-control" ref="dtbinput" onKeyDown={this.onKeyDown} onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
+              <span className="input-group-addon" onClick={this.onClick} ref="dtpbutton"><Glyphicon glyph={this.state.buttonIcon} /></span>
             </div>
           </div>
     );

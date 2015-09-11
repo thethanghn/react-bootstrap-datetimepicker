@@ -65,11 +65,11 @@ export default class DateTimePickerTime extends Component {
         <table className="table-condensed">
           <tbody>
             <tr>
-              <td><a className="btn" onClick={this.props.addHour}><Glyphicon glyph="chevron-up" /></a></td>
+              <td><a tabIndex="-1" className="btn" onClick={this.props.addHour}><Glyphicon glyph="chevron-up" /></a></td>
 
-              <td className="separator"></td>
+              <td className="separator" onKeyUp={this.onKeyUp}></td>
 
-              <td><a className="btn" onClick={this.props.addMinute}><Glyphicon glyph="chevron-up" /></a></td>
+              <td><a tabIndex="-1" className="btn" onClick={this.props.addMinute}><Glyphicon glyph="chevron-up" /></a></td>
 
               <td className="separator"></td>
             </tr>
@@ -83,15 +83,15 @@ export default class DateTimePickerTime extends Component {
 
               <td className="separator"></td>
 
-              <td><button className="btn btn-primary" onClick={this.props.togglePeriod} type="button">{this.props.selectedDate.format("A")}</button></td>
+              <td><button tabIndex="-1" className="btn btn-primary" onClick={this.props.togglePeriod} type="button">{this.props.selectedDate.format("A")}</button></td>
             </tr>
 
             <tr>
-              <td><a className="btn" onClick={this.props.subtractHour}><Glyphicon glyph="chevron-down" /></a></td>
+              <td><a tabIndex="-1" className="btn" onClick={this.props.subtractHour}><Glyphicon glyph="chevron-down" /></a></td>
 
               <td className="separator"></td>
 
-              <td><a className="btn" onClick={this.props.subtractMinute}><Glyphicon glyph="chevron-down" /></a></td>
+              <td><a tabIndex="-1" className="btn" onClick={this.props.subtractMinute}><Glyphicon glyph="chevron-down" /></a></td>
 
               <td className="separator"></td>
             </tr>
