@@ -1,7 +1,9 @@
 react-bootstrap-datetimepicker
 ===============================
 
-This project is a port of https://github.com/Eonasdan/bootstrap-datetimepicker for React.js
+This project is a fork of http://dev.quri.com/react-bootstrap-datetimepicker
+
+It adds some basic keyboard for time picker only.
 
 Usage
 ===============================
