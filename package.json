@@ -1,6 +1,6 @@
 {
   "name": "@thethanghn/react-bootstrap-datetimepicker",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "A bootstrap datetime picker component for React.js",
   "homepage": "http://github.com/thethanghn/react-bootstrap-datetimepicker/",
   "repository": {
