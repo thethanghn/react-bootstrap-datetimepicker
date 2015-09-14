@@ -346,6 +346,10 @@ export default class DateTimeField extends Component {
     }
   }
 
+  getValue() {
+    return this.refs.dtpinput.getValue();
+  }
+
   render() {
     return (
           <div>
