@@ -99,6 +99,10 @@ export default class DateTimeField extends Component {
     return moment(this.state.inputValue, this.props.inputFormat, true).format(this.props.format);
   }
 
+  getMomentValue = () => {
+    return this.state.inputValue ? moment(this.state.inputValue, this.props.inputFormat, true) : null;
+  }
+
   setSelectedDate = (e) => {
     const { target } = e;
     if (target.className && !target.className.match(/disabled/g)) {
@@ -158,9 +162,10 @@ export default class DateTimeField extends Component {
     return this.setState({
       selectedDate: this.state.selectedDate.clone().add(1, "minutes")
     }, function() {
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
         inputValue: this.state.selectedDate.format(this.resolvePropsInputFormat())
+      }, function() {
+        return this.props.onChange(this.state.selectedDate.format(this.props.format));
       });
     });
   }
@@ -169,9 +174,10 @@ export default class DateTimeField extends Component {
     return this.setState({
       selectedDate: this.state.selectedDate.clone().add(1, "hours")
     }, function() {
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
         inputValue: this.state.selectedDate.format(this.resolvePropsInputFormat())
+      }, function() {
+        return this.props.onChange(this.state.selectedDate.format(this.props.format));
       });
     });
   }
@@ -198,9 +204,10 @@ export default class DateTimeField extends Component {
     return this.setState({
       selectedDate: this.state.selectedDate.clone().subtract(1, "minutes")
     }, () => {
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
         inputValue: this.state.selectedDate.format(this.resolvePropsInputFormat())
+      }, function() {
+        return this.props.onChange(this.state.selectedDate.format(this.props.format));
       });
     });
   }
@@ -209,9 +216,10 @@ export default class DateTimeField extends Component {
     return this.setState({
       selectedDate: this.state.selectedDate.clone().subtract(1, "hours")
     }, () => {
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
         inputValue: this.state.selectedDate.format(this.resolvePropsInputFormat())
+      }, function() {
+        return this.props.onChange(this.state.selectedDate.format(this.props.format));
       });
     });
   }
